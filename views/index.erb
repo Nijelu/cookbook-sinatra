@@ -1,0 +1,13 @@
+<ul>
+  <% @cookbook.all.each do |recipe| %>
+    <li>
+      <p><%= recipe.name %> (<%= recipe.cook_time %>) |<%= recipe.difficulty %> <form action="/destroy/<%= recipe.name %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete!">
+            </form></p>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/new">Create a recipe</a>
+<a href="/search">Import a recipe</a>
